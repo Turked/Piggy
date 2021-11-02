@@ -59,9 +59,10 @@ class Piggy(PiggyParent):
     def edward(self):
       for i in range(4):
         self.deg_fwd(180)
-        self.stop()
         self.right()
-        self.stop()
+        time.sleep(1)
+        self.stop
+      self.stop()
 
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
