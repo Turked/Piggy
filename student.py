@@ -71,7 +71,7 @@ class Piggy(PiggyParent):
         self.fwd()
         time.sleep(1)
         self.stop()
-        self.right(primary=45, counter=-45)
+        self.right(primary=43, counter=-43)
         time.sleep(1)
         self.stop()
 
