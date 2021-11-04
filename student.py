@@ -67,7 +67,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     def edward(self):
-      self.deg_fwd(360)
+      self.deg_fwd(540)
       self.stop()
 
     def dance(self):
