@@ -51,7 +51,7 @@ class Piggy(PiggyParent):
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
-                "e": ("Edward Test", self.edward)
+                "e": ("Square", self.square)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -66,7 +66,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
-    def edward(self):
+    def square(self):
       for i in range(4):
         self.fwd()
         time.sleep(1)
@@ -82,9 +82,10 @@ class Piggy(PiggyParent):
         # TODO: check to see if it's safe before dancing
         
         # lower-ordered example...
-        self.right(primary=50, counter=50)
-        time.sleep(2)
-        self.stop()
+        for i in range(4):
+          self.right(primary=43, counter=-43)
+          time.sleep(1)
+          self.stop()
         
 
     def safe_to_dance(self):
