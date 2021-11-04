@@ -68,6 +68,7 @@ class Piggy(PiggyParent):
     '''
     def edward(self):
       self.deg_fwd(540)
+      time.sleep(2)
       self.stop()
 
     def dance(self):
