@@ -51,7 +51,7 @@ class Piggy(PiggyParent):
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
-                "e": ("Square", self.square)
+                "s": ("Square", self.square)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -83,7 +83,7 @@ class Piggy(PiggyParent):
         
         # lower-ordered example...
         for i in range(4):
-          self.right(primary=43, counter=-43)
+          self.right(primary=100, counter=-100)
           time.sleep(1)
           self.stop()
         
