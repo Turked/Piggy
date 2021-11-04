@@ -67,7 +67,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     def edward(self):
-      for i in range():
+      for i in range(2):
         self.deg_fwd(540)
         time.sleep(2)
         self.stop()
