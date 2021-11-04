@@ -3,6 +3,16 @@ from teacher import PiggyParent
 import sys
 import time
 
+"""
+Login as: pi
+Password: robots1234
+ls
+cd Piggy
+pyhton3 student.py
+
+"""
+
+
 class Piggy(PiggyParent):
 
     '''
@@ -57,7 +67,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     def edward(self):
-      self.deg_fwd(180)
+      self.deg_fwd(360)
     #  self.right()
     #  time.sleep(1)
     #  self.stop
