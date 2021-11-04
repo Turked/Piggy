@@ -86,13 +86,11 @@ class Piggy(PiggyParent):
           self.right(primary=500, counter=-500)
           time.sleep(1)
           self.stop()
-'''
-        for i in range(4):
-          self.right(primary=500, counter=-500)
-          time.sleep(.1)
-          self.left(primary=500, counter=-500)
-          time.sleep(.1)
-'''
+        #for i in range(4):
+          #self.right(primary=500, counter=-500)
+          #time.sleep(.1)
+          #self.left(primary=500, counter=-500)
+          #time.sleep(.1)
 
         
 
