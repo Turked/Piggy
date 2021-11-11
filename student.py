@@ -69,7 +69,7 @@ class Piggy(PiggyParent):
     '''
     def check_safe(self):
       while True:
-        read_distance()
+        self.read_distance()
    
     def square(self):
       for i in range(4):
