@@ -51,7 +51,8 @@ class Piggy(PiggyParent):
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
                 "q": ("Quit", self.quit),
-                "s": ("Square", self.square)
+                "s": ("Square", self.square),
+                "s": ("Check Safe Zone", self.check_safe)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -66,6 +67,10 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
+    def check_safe(self):
+      while True:
+        read_distance()
+   
     def square(self):
       for i in range(4):
         self.fwd()
@@ -80,7 +85,8 @@ class Piggy(PiggyParent):
     def dance(self):
         """A higher-ordered algorithm to make your robot dance"""
         # TODO: check to see if it's safe before dancing
-        
+        is safe_to_dance():
+          pass
         # lower-ordered example...
         for i in range(4):
           self.right(primary=100, counter=-100)
@@ -104,7 +110,7 @@ class Piggy(PiggyParent):
 
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
-        pass
+        return True
 
     def shake(self):
         """ Another example move """
