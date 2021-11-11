@@ -112,6 +112,7 @@ class Piggy(PiggyParent):
         """ Does a 360 distance check and returns true if safe """
         self.read_distance()
         self.right(primary=100, counter=-100)
+        self.read_distance()
         time.sleep(1)
         self.stop
         return True
