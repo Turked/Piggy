@@ -69,7 +69,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     def vanek(self):
-      if safe_to_drive():
+      if self.safe_to_drive():
         self.fwd()
         time.sleep(0.1)
         self.stop()
