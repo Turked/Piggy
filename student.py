@@ -121,7 +121,7 @@ class Piggy(PiggyParent):
 
     def safe_to_drive(self):
       self.read_distance()
-      if self.read_distance > 500:
+      if self.read_distance() > 500:
         return True
       else:
         return False
