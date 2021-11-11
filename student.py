@@ -111,9 +111,11 @@ class Piggy(PiggyParent):
     def safe_to_dance(self):
         """ Does a 360 distance check and returns true if safe """
         self.read_distance()
+        time.sleep(0.5)
         self.right(primary=100, counter=-100)
         self.read_distance()
-        time.sleep(1)
+        time.sleep(0.5)
+        time.sleep(0.5)
         self.stop
         return True
 
