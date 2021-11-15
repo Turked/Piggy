@@ -93,7 +93,7 @@ class Piggy(PiggyParent):
             self.right(primary=100, counter=-100)
 
     def wall_avoid(self):
-      pass
+      self.stop()
 
 
     def check_safe(self):
