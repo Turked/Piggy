@@ -70,13 +70,13 @@ class Piggy(PiggyParent):
     '''
     def vanek(self):
       for i in range (100): 
-      if (self.read_distance() > 50):
-        self.fwd()
-        self.stop()
-      elif (self.read_distance() < 49):
-        self.back()
-        time.sleep(0.1)
-        self.stop()
+        if (self.read_distance() > 50):
+          self.fwd()
+          self.stop()
+        elif (self.read_distance() < 49):
+          self.back()
+          time.sleep(0.1)
+          self.stop()
   
     def check_safe(self):
       self.safe_to_dance()
