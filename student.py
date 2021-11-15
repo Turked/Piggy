@@ -98,14 +98,14 @@ class Piggy(PiggyParent):
 
     def check_safe(self):
       self.safe_to_dance()
-        while True: 
-          if (self.read_distance() > 300):
-            self.fwd()
-            time.sleep(1)
-            self.stop()
-          elif (self.read_distance() < 299):
-            while True:
-              self.right(primary=100, counter=-100)
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          time.sleep(1)
+          self.stop()
+        elif (self.read_distance() < 299):
+          while True:
+            self.right(primary=100, counter=-100)
 
    
     def square(self):
