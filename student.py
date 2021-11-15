@@ -69,7 +69,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     def vanek(self):
-      for i in range (100) 
+      for i in range (100): 
       if (self.read_distance() > 50):
         self.fwd()
         self.stop()
