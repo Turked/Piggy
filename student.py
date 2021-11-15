@@ -88,7 +88,8 @@ class Piggy(PiggyParent):
           time.sleep(1)
           self.stop()
         elif (self.read_distance() < 299):
-          self.right(primary=100, counter=-100)
+          while True:
+            self.right(primary=100, counter=-100)
 
 
     def check_safe(self):
