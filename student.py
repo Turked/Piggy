@@ -54,7 +54,7 @@ class Piggy(PiggyParent):
                 "s": ("Square", self.square),
                 "s": ("Check Safe Zone", self.check_safe),
                 "w": ("Is There A Wall?", self.wall),
-                "u": ("Spin At Wall", self.wall_spin).
+                "u": ("Spin At Wall", self.wall_spin),
                 "a": ("Obect avoidence", self.wall_avoid)
                 }
         # loop and print the menu...
