@@ -69,8 +69,10 @@ class Piggy(PiggyParent):
     ****************
     '''
     def vanek(self):
-      while (self.read_distance() > 500):
+      while (self.read_distance() > 50):
         self.fwd()
+      self.stop()
+
 '''
         else:
           self.back()
@@ -78,10 +80,9 @@ class Piggy(PiggyParent):
           self.stop()
 '''
   
-'''
     def check_safe(self):
       self.safe_to_dance()
-'''
+
    
     def square(self):
       for i in range(4):
