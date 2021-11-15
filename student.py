@@ -72,11 +72,11 @@ class Piggy(PiggyParent):
       for i in range (100): 
         if (self.read_distance() > 50):
           self.fwd()
-          time.sleep(0.1)
+          time.sleep(1)
           self.stop()
         elif (self.read_distance() < 49):
           self.back()
-          time.sleep(0.1)
+          time.sleep(1)
           self.stop()
   
     def check_safe(self):
