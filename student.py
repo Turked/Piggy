@@ -53,7 +53,7 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "s": ("Square", self.square),
                 "s": ("Check Safe Zone", self.check_safe),
-                "v": ("vanek's request", self.vanek)
+                "w": ("Is There A Wall?", self.wall)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -69,7 +69,7 @@ class Piggy(PiggyParent):
     ****************
     '''
     #Nice
-    def vanek(self):
+    def wall(self):
       while True: 
         if (self.read_distance() > 300):
           self.fwd()
