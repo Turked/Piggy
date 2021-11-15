@@ -68,6 +68,7 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
+    #Nice
     def vanek(self):
       for i in range (100): 
         if (self.read_distance() > 300):
