@@ -53,7 +53,8 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "s": ("Square", self.square),
                 "s": ("Check Safe Zone", self.check_safe),
-                "w": ("Is There A Wall?", self.wall)
+                "w": ("Is There A Wall?", self.wall),
+                "u": ("Spin At Wall", self.wall_spin)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -80,6 +81,16 @@ class Piggy(PiggyParent):
           time.sleep(1)
           self.stop()
   
+    def wall_spin(self):
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          time.sleep(1)
+          self.stop()
+        elif (self.read_distance() < 299):
+          self.right(primary=100, counter=-100)
+
+
     def check_safe(self):
       self.safe_to_dance()
 
