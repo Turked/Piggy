@@ -81,7 +81,7 @@ class Piggy(PiggyParent):
 '''
   
     def check_safe(self):
-        self.safe_to_dance()
+      self.safe_to_dance()
    
     def square(self):
       for i in range(4):
