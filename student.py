@@ -81,6 +81,7 @@ class Piggy(PiggyParent):
           time.sleep(1)
           self.stop()
   
+  #Nice
     def wall_spin(self):
       while True: 
         if (self.read_distance() > 300):
