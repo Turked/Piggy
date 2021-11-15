@@ -78,8 +78,10 @@ class Piggy(PiggyParent):
           self.stop()
 '''
   
+'''
     def check_safe(self):
       self.safe_to_dance()
+'''
    
     def square(self):
       for i in range(4):
