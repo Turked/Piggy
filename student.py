@@ -139,9 +139,9 @@ class Piggy(PiggyParent):
         elif (self.read_distance() < 299):            #Is there a wall (Yes)
             self.right(primary=50, counter=-50)       #look to see if the right is short]
             time.sleep(0.2)                           #Looking right]
-            self.stop                                 #Looking right]
+            self.stop()                               #Looking right]
             if (self.read_distance() > 300):          #Is there a wall (No)
-              self.right(primary=-50, counter=50)     #Turn back]
+              self.left(primary=50, counter=-50)      #Turn back]
               time.sleep(0.5)                         #Turn back]
               self.stop()                             #Turn back]
               self.wall_avoid()                       #Run wall aviod
