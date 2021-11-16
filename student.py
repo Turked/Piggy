@@ -129,7 +129,6 @@ class Piggy(PiggyParent):
             self.stop()
 
 
-
     def smart_wall_aviod(self):
       while True:                                     #This makes it run forever
         if (self.read_distance() > 300):              #Is there a wall (No)
@@ -137,19 +136,27 @@ class Piggy(PiggyParent):
           time.sleep(1)                               #Move forward]
           self.stop()                                 #Move forward]
         elif (self.read_distance() < 299):            #Is there a wall (Yes)
-            self.right(primary=50, counter=-50)       #look to see if the right is short]
-            time.sleep(0.2)                           #Looking right]
+            self.servo(1000)                          #Looking right]
+            time.sleep(1)                             #Looking right]
             self.stop()                               #Looking right]
-            if (self.read_distance() > 300):          #Is there a wall (No)
-              self.left(primary=50, counter=-50)      #Turn back]
-              time.sleep(0.5)                         #Turn back]
-              self.stop()                             #Turn back]
-              self.wall_avoid()                       #Run wall aviod
-            elif (self.read_distance() < 299):        #Is there a wall (Yes)
-              self.right(primarty=-50, counter=50)    #Turn back, Turn left]
-              time.sleep(0.6)                         #Turn back, Turn left]
-              self.stop()                             #Turn back, Turn left]
-              self.wall_avoid_left()                  #Run wall aviod left
+            self.read_distance() = right              #Setting right length to a variable
+            self.servo(1800)                          #Looking left]
+            time.sleep(1)                             #Looking left]
+            self.stop()                               #Looking left]
+            self.read_distance() = left               #Settomg left length to a variable
+            self.servo(1400)                          #Looking straight]
+            time.sleep(1)                             #Looking straight]
+            self.stop()                               #Looking straight]
+            if (right < left):                        #Is the right side shorter (Yes)
+              self.servo(1400)                        #Looking straight]
+              time.sleep(1)                           #Looking straight]
+              self.stop()                             #Looking straight]
+              self.wall_avoid()                       #Running Wall Avoid
+            elif (left < right):                      #Is the left side shorter (Yes)
+              self.servo(1400)                        #Looking straight]
+              time.sleep(1)                           #Looking straight]
+              self.stop()                             #Looking straight]
+              self.wall_avoid_left()                  #Running Wall Avoid Left
               #Credit -> Vincent
               
 
