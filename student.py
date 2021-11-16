@@ -109,7 +109,7 @@ class Piggy(PiggyParent):
             self.right(primary=-100, counter=100)
             time.sleep(0.3)
             self.stop()
-
+#
     def smart_wall_aviod(self):
       while True: 
         if (self.read_distance() > 300):
