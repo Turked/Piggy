@@ -109,7 +109,26 @@ class Piggy(PiggyParent):
             self.right(primary=-100, counter=100)
             time.sleep(0.3)
             self.stop()
-#
+
+    def wall_avoid_left(self):
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          time.sleep(1)
+          self.stop()
+        elif (self.read_distance() < 299):
+            self.right(primary=-100, counter=100)
+            time.sleep(0.3)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=100, counter=-100)
+            time.sleep(0.3)
+            self.stop()
+
+
+
     def smart_wall_aviod(self):
       while True: 
         if (self.read_distance() > 300):
@@ -126,7 +145,7 @@ class Piggy(PiggyParent):
             elif (self.read_distance() < 300):
               self.right(primarty=-50, counter=50)
               time.sleep(0.4)
-              wall_avoid()
+              wall_avoid_left()
               
 
 
