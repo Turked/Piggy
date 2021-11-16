@@ -55,7 +55,8 @@ class Piggy(PiggyParent):
                 "s": ("Check Safe Zone", self.check_safe),
                 "w": ("Is There A Wall?", self.wall),
                 "u": ("Spin At Wall", self.wall_spin),
-                "a": ("Obect avoidence", self.wall_avoid)
+                "a": ("Object Avoidence", self.wall_avoid),
+                "b": ("Smart Object Avoidence", self.smart_wall_aviod)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -91,7 +92,7 @@ class Piggy(PiggyParent):
           self.stop()
         elif (self.read_distance() < 299):
             self.right(primary=100, counter=-100)
-
+  #Nice
     def wall_avoid(self):
       while True: 
         if (self.read_distance() > 300):
@@ -108,6 +109,25 @@ class Piggy(PiggyParent):
             self.right(primary=-100, counter=100)
             time.sleep(0.3)
             self.stop()
+
+    def smart_wall_aviod(self):
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          time.sleep(1)
+          self.stop()
+        elif (self.read_distance() < 299):
+            self.right(primary=50, counter=-50)
+            time.sleep(0.2)
+            if (self.read_distance() > 300):
+              self.right(primary=-50, counter=50)
+              time.sleep(0.2)
+              wall_avoid()
+            elif (self.read_distance() < 300):
+              self.right(primarty=-50, counter=50)
+              time.sleep(0.4)
+              wall_avoid()
+              
 
 
     def check_safe(self):
