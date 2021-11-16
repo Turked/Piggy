@@ -101,13 +101,13 @@ class Piggy(PiggyParent):
         elif (self.read_distance() < 299):
             self.right(primary=100, counter=-100)
             time.sleep(0.3)
-            self.stop
+            self.stop()
             self.fwd()
             time.sleep(2)
-            self.stop
+            self.stop()
             self.right(primary=-100, counter=100)
-            time.sleep(0.2)
-            self.stop
+            time.sleep(0.3)
+            self.stop()
 
 
     def check_safe(self):
