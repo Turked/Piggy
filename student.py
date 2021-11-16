@@ -145,7 +145,7 @@ class Piggy(PiggyParent):
               time.sleep(0.5)                         #Turn back]
               self.stop()                             #Turn back]
               self.wall_avoid()                       #Run wall aviod
-            elif (self.read_distance() < 300):        #Is there a wall (Yes)
+            elif (self.read_distance() < 299):        #Is there a wall (Yes)
               self.right(primarty=-50, counter=50)    #Turn back, Turn left]
               time.sleep(0.6)                         #Turn back, Turn left]
               self.stop()                             #Turn back, Turn left]
