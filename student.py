@@ -92,25 +92,26 @@ class Piggy(PiggyParent):
           self.stop()
         elif (self.read_distance() < 299):
             self.right(primary=100, counter=-100)
-  #Nice
-    def wall_avoid(self):
-      while True: 
-        if (self.read_distance() > 300):
-          self.fwd()
-          time.sleep(1)
-          self.stop()
-        elif (self.read_distance() < 299):
-            self.right(primary=100, counter=-100)
-            time.sleep(0.3)
-            self.stop()
-            self.fwd()
-            time.sleep(2)
-            self.stop()
-            self.right(primary=-100, counter=100)
-            time.sleep(0.3)
-            self.stop()
 
-    def wall_avoid_left(self):
+  #Nice             
+    def wall_avoid(self):                          
+      while True:                                   #Do it forever
+        if (self.read_distance() > 300):            #Is there a wall? (No)
+          self.fwd()                                #Go forwards]
+          time.sleep(1)                             #Go forwards]
+          self.stop()                               #Go forwards]
+        elif (self.read_distance() < 299):          #Is there a wall? (Yes)
+            self.right(primary=100, counter=-100)   #Turn right]
+            time.sleep(0.3)                         #Turn right]
+            self.stop()                             #Turn right]
+            self.fwd()                              #Go forwards}
+            time.sleep(2)                           #Go forwards}
+            self.stop()                             #Go forwards}
+            self.right(primary=-100, counter=100)   #Turn left]
+            time.sleep(0.3)                         #Turn left]
+            self.stop()                             #Turn left]
+
+    def wall_avoid_left(self):                      #Same as wall avoid exept you turn left
       while True: 
         if (self.read_distance() > 300):
           self.fwd()
@@ -130,22 +131,25 @@ class Piggy(PiggyParent):
 
 
     def smart_wall_aviod(self):
-      while True: 
-        if (self.read_distance() > 300):
-          self.fwd()
-          time.sleep(1)
-          self.stop()
-        elif (self.read_distance() < 299):
-            self.right(primary=50, counter=-50)
-            time.sleep(0.2)
-            if (self.read_distance() > 300):
-              self.right(primary=-50, counter=50)
-              time.sleep(0.2)
-              wall_avoid()
-            elif (self.read_distance() < 300):
-              self.right(primarty=-50, counter=50)
-              time.sleep(0.4)
-              wall_avoid_left()
+      while True:                                     #This makes it run forever
+        if (self.read_distance() > 300):              #Is there a wall (No)
+          self.fwd()                                  #Move forward] 
+          time.sleep(1)                               #Move forward]
+          self.stop()                                 #Move forward]
+        elif (self.read_distance() < 299):            #Is there a wall (Yes)
+            self.right(primary=50, counter=-50)       #look to see if the right is short]
+            time.sleep(0.3)                           #Looking right]
+            self.stop                                 #Looking right]
+            if (self.read_distance() > 300):          #Is there a wall (No)
+              self.right(primary=-50, counter=50)     #Turn back]
+              time.sleep(0.3)                         #Turn back]
+              self.stop()                             #Turn back]
+              wall_avoid()                            #Run wall aviod
+            elif (self.read_distance() < 300):        #Is there a wall (Yes)
+              self.right(primarty=-50, counter=50)    #Turn back, Turn left]
+              time.sleep(0.6)                         #Turn back, Turn left]
+              self.stop()                             #Turn back, Turn left]
+              wall_avoid_left()                       #Run wall aviod left
               
 
 
