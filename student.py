@@ -128,6 +128,7 @@ class Piggy(PiggyParent):
             time.sleep(0.3)
             self.stop()
 
+#rando question = who teaches 3D fabrication
 
     def smart_wall_aviod(self):
       while True:                                     #This makes it run forever
