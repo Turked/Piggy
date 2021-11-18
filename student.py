@@ -131,12 +131,13 @@ class Piggy(PiggyParent):
 #rando question = who teaches 3D fabrication
 
     def smart_wall_aviod(self):
+      back = 0
       while True:                                     #This makes it run forever
-        if (self.read_distance() > 300):              #Is there a wall (No)
+        if (self.read_distance() > (300 + 100)):              #Is there a wall (No)
           self.fwd()                                  #Move forward] 
           time.sleep(1)                               #Move forward]
           self.stop()                                 #Move forward]
-        elif (self.read_distance() < 299):            #Is there a wall (Yes)
+        elif (self.read_distance() < (299 + 100)):            #Is there a wall (Yes)
             self.servo(800)                           #Looking right]
             time.sleep(1)                             #Looking right]
             self.stop()                               #Looking right]
@@ -163,6 +164,7 @@ class Piggy(PiggyParent):
               self.back()
               time.sleep(1)
               self.stop()
+              back += 100
                 #Credit -> Vincent
               
 
