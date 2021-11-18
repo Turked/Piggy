@@ -140,11 +140,11 @@ class Piggy(PiggyParent):
             self.servo(1000)                          #Looking right]
             time.sleep(1)                             #Looking right]
             self.stop()                               #Looking right]
-            self.read_distance() = right              #Setting right length to a variable
+            right = self.read_distance()              #Setting right length to a variable
             self.servo(1800)                          #Looking left]
             time.sleep(1)                             #Looking left]
             self.stop()                               #Looking left]
-            self.read_distance() = left               #Settomg left length to a variable
+            left = self.read_distance()               #Setting left length to a variable
             self.servo(1400)                          #Looking straight]
             time.sleep(1)                             #Looking straight]
             self.stop()                               #Looking straight]
