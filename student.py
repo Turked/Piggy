@@ -137,7 +137,7 @@ class Piggy(PiggyParent):
           time.sleep(1)                               #Move forward]
           self.stop()                                 #Move forward]
         elif (self.read_distance() < 299):            #Is there a wall (Yes)
-            self.servo(800)                          #Looking right]
+            self.servo(800)                           #Looking right]
             time.sleep(1)                             #Looking right]
             self.stop()                               #Looking right]
             right = self.read_distance()              #Setting right length to a variable
