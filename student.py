@@ -149,7 +149,7 @@ class Piggy(PiggyParent):
             self.servo(1400)                          #Looking straight]
             time.sleep(1)                             #Looking straight]
             self.stop()                               #Looking straight]
-            if (right - left > 100):
+            if (abs(right - left) > 100):
               if (right > left):                        #Is the right side shorter (Yes)
                 self.servo(1400)                        #Looking straight]
                 time.sleep(1)                           #Looking straight]
