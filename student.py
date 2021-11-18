@@ -162,7 +162,7 @@ class Piggy(PiggyParent):
                 self.wall_avoid_left()                  #Running Wall Avoid Left
             else:
               self.back()
-              time.sleep(1)
+              time.sleep(2)
               self.stop()
               back += 100
                 #Credit -> Vincent
