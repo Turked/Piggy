@@ -157,8 +157,6 @@ class Piggy(PiggyParent):
               self.servo(1400)                        #Looking straight]
               time.sleep(1)                           #Looking straight]
               self.stop()                             #Looking straight]
-              self.back()
-              time.sleep(10)
               self.wall_avoid_left()                  #Running Wall Avoid Left
               #Credit -> Vincent
               
