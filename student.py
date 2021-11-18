@@ -148,17 +148,22 @@ class Piggy(PiggyParent):
             self.servo(1400)                          #Looking straight]
             time.sleep(1)                             #Looking straight]
             self.stop()                               #Looking straight]
-            if (right > left):                        #Is the right side shorter (Yes)
-              self.servo(1400)                        #Looking straight]
-              time.sleep(1)                           #Looking straight]
-              self.stop()                             #Looking straight]
-              self.wall_avoid()                       #Running Wall Avoid
-            elif (left > right):                      #Is the left side shorter (Yes)
-              self.servo(1400)                        #Looking straight]
-              time.sleep(1)                           #Looking straight]
-              self.stop()                             #Looking straight]
-              self.wall_avoid_left()                  #Running Wall Avoid Left
-              #Credit -> Vincent
+            if (right - left > 100):
+              if (right > left):                        #Is the right side shorter (Yes)
+                self.servo(1400)                        #Looking straight]
+                time.sleep(1)                           #Looking straight]
+                self.stop()                             #Looking straight]
+                self.wall_avoid()                       #Running Wall Avoid
+              elif (left > right):                      #Is the left side shorter (Yes)
+                self.servo(1400)                        #Looking straight]
+                time.sleep(1)                           #Looking straight]
+                self.stop()                             #Looking straight]
+                self.wall_avoid_left()                  #Running Wall Avoid Left
+            else:
+              self.back()
+              time.sleep(1)
+              self.stop()
+                #Credit -> Vincent
               
 
 
