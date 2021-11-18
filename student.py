@@ -164,7 +164,7 @@ class Piggy(PiggyParent):
               self.back()
               time.sleep(1)
               self.stop()
-              back += 100
+              back + 100
                 #Credit -> Vincent
               
 
