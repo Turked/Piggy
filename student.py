@@ -189,7 +189,6 @@ class Piggy(PiggyParent):
     def fwd_w_scan(self):
       while True: 
         if (self.read_distance() > 300):
-          self.fwd()
           self.servo(1400)
           self.servo(1800)
           self.servo(1400)
