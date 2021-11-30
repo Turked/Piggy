@@ -190,8 +190,10 @@ class Piggy(PiggyParent):
         if (self.read_distance() > 300):
           self.fwd()
           self.servo(1400)
+          self.servo(1000)
+          self.servo(1800)
         elif (self.read_distance() < 299):
-          print("Nothing")
+          self.stop()
 
 
     def check_safe(self):                               #Step 1
