@@ -57,7 +57,8 @@ class Piggy(PiggyParent):
                 "w": ("Is There A Wall?", self.wall),
                 "u": ("Spin At Wall", self.wall_spin),
                 "a": ("Object Avoidence", self.wall_avoid),
-                "b": ("Smart Object Avoidence", self.smart_wall_aviod)
+                "b": ("Smart Object Avoidence", self.smart_wall_aviod),
+                "c": ("Forward and Scan", self.fwd_w_scan)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
