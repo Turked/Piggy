@@ -174,17 +174,20 @@ class Piggy(PiggyParent):
               
     def swerve(self, direction = "R"):                                  #Step 2
       if "R" in direction:
-        print("Nothing")
+        self.stop()
+        self.servo(1400)
+        self.fwd()
+        self.right(primary=50, counter=0)
+        time.sleep(5)
+        self.stop()
       elif "L" in direction:
-        print("Nothing")
+        self.stop()
+        self.servo(1400)
+        self.fwd()
+        self.left(primary=50, counter=0)
+        time.sleep(5)
+        self.stop()
 
-      while True: 
-        if (self.read_distance() > 300):
-          self.fwd()
-          time.sleep(1)
-          self.stop()
-        elif (self.read_distance() < 299):
-          print("Nothing")
 
     def fwd_w_scan(self):                             #Step 1
       while True: 
@@ -193,23 +196,17 @@ class Piggy(PiggyParent):
           middle = self.read_distance()               #Setting middle length to a variable
           time.sleep(0.2)
           if (middle < 299):
-            self.back()
-            time.sleep(0.3)
-            self.stop()
+            self.smart_wall_aviod()
           self.servo(1800)
           left = self.read_distance()                 #Setting left length to a variable
           time.sleep(0.2)
           if (left < 299):
-            self.left(primary=100, counter=0)
-            time.sleep(0.3)
-            self.stop()
+            self.swerve(L)
           self.servo(1000)
           right = self.read_distance()                #Setting right length to a variable
           time.sleep(0.2)
           if (right < 299):
-            self.right(primary=100, counter=0)
-            time.sleep(0.3)
-            self.stop()
+            self.swerve(R)
 
 
 
