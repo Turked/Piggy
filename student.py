@@ -191,22 +191,17 @@ class Piggy(PiggyParent):
 
     def fwd_w_scan(self):                             #Step 1
       while True: 
-        if (self.read_distance() > 300):
-          self.servo(1400)
-          middle = self.read_distance()               #Setting middle length to a variable
-          time.sleep(0.2)
-          if (middle < 299):
-            self.smart_wall_aviod()
-          self.servo(1800)
-          left = self.read_distance()                 #Setting left length to a variable
-          time.sleep(0.2)
-          if (left < 299):
-            self.swerve(L)
-          self.servo(1000)
-          right = self.read_distance()                #Setting right length to a variable
-          time.sleep(0.2)
-          if (right < 299):
-            self.swerve(R)
+        self.fwd()
+        self.servo(1000)
+        if (self.read_distance() < 300):
+          self.swerve(L)
+        self.servo(1800)
+        if (self.read_distance() < 300):
+          self.swerve(R)
+        self.servo(1400)
+        if (self.read_distance() < 300):
+          self.smart_wall_aviod()
+
 
 
 
