@@ -198,12 +198,12 @@ class Piggy(PiggyParent):
           left = self.read_distance()                 #Setting left length to a variable
           time.sleep(0.2)
           if (left < 299):
-            self.stop()
+            self.left(primary=100, counter=0)
           self.servo(1000)
           right = self.read_distance()                #Setting right length to a variable
           time.sleep(0.2)
           if (right < 299):
-            self.stop()
+            self.right(primary=100, counter=0)
 
 
 
