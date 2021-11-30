@@ -173,8 +173,9 @@ class Piggy(PiggyParent):
               
     def swerve(self, direction = "R"):                                  #Step 2
       if "R" in direction:
-
+        print("Nothing")
       elif "L" in direction:
+        print("Nothing")
 
       while True: 
         if (self.read_distance() > 300):
