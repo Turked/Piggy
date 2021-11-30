@@ -53,6 +53,7 @@ class Piggy(PiggyParent):
                 "q": ("Quit", self.quit),
                 "s": ("Square", self.square),
                 "s": ("Check Safe Zone", self.check_safe),
+                "t": ("Test", self.test),
                 "w": ("Is There A Wall?", self.wall),
                 "u": ("Spin At Wall", self.wall_spin),
                 "a": ("Object Avoidence", self.wall_avoid),
@@ -71,6 +72,10 @@ class Piggy(PiggyParent):
     STUDENT PROJECTS
     ****************
     '''
+    #Nice
+    def test(self):
+      self.servo(1400)
+
     #Nice
     def wall(self):
       while True: 
@@ -166,9 +171,29 @@ class Piggy(PiggyParent):
               back += 100
                 #Credit -> Vincent
               
+    def swerve(self, direction = "R"):                                  #Step 2
+      if "R" in direction:
+
+      elif "L" in direction:
+
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          time.sleep(1)
+          self.stop()
+        elif (self.read_distance() < 299):
+          print("Nothing")
+
+    def fwd_w_scan(self):
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          self.servo(1400)
+        elif (self.read_distance() < 299):
+          print("Nothing")
 
 
-    def check_safe(self):
+    def check_safe(self):                               #Step 1
       self.safe_to_dance()
       while True: 
         if (self.read_distance() > 300):
