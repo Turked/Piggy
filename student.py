@@ -186,7 +186,7 @@ class Piggy(PiggyParent):
         elif (self.read_distance() < 299):
           print("Nothing")
 
-    def fwd_w_scan(self):
+    def fwd_w_scan(self):                             #Step 1
       while True: 
         if (self.read_distance() > 300):
           self.servo(1400)
@@ -202,7 +202,7 @@ class Piggy(PiggyParent):
           self.stop()
 
 
-    def check_safe(self):                               #Step 1
+    def check_safe(self):
       self.safe_to_dance()
       while True: 
         if (self.read_distance() > 300):
