@@ -176,15 +176,14 @@ class Piggy(PiggyParent):
       if "R" in direction:
         self.stop()
         self.servo(1400)
-        self.fwd()
-        self.right(primary=50, counter=0)
+        self.right(primary=50, counter=40)
         time.sleep(5)
         self.stop()
       elif "L" in direction:
         self.stop()
         self.servo(1400)
         self.fwd()
-        self.left(primary=50, counter=0)
+        self.left(primary=50, counter=40)
         time.sleep(5)
         self.stop()
 
@@ -194,10 +193,10 @@ class Piggy(PiggyParent):
         self.fwd()
         self.servo(1000)
         if (self.read_distance() < 300):
-          self.swerve(L)
+          self.swerve("L")
         self.servo(1800)
         if (self.read_distance() < 300):
-          self.swerve(R)
+          self.swerve("R")
         self.servo(1400)
         if (self.read_distance() < 300):
           self.smart_wall_aviod()
