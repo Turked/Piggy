@@ -191,17 +191,17 @@ class Piggy(PiggyParent):
         if (self.read_distance() > 300):
           self.servo(1400)
           middle = self.read_distance()               #Setting middle length to a variable
-          time.sleep(0.1)
+          time.sleep(0.2)
           if (middle < 299):
             self.back()
           self.servo(1800)
           left = self.read_distance()                 #Setting left length to a variable
-          time.sleep(0.1)
+          time.sleep(0.2)
           if (left < 299):
             self.stop()
           self.servo(1000)
           right = self.read_distance()                #Setting right length to a variable
-          time.sleep(0.1)
+          time.sleep(0.2)
           if (right < 299):
             self.stop()
 
