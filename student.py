@@ -173,19 +173,20 @@ class Piggy(PiggyParent):
                 #Credit -> Vincent
               
     def swerve(self, direction = "R"):                                  #Step 2
+      self.stop()
+      self.servo(self.MIDPOINT)
       if "R" in direction:
-        self.stop()
-        self.servo(1400)
-        self.right(primary=50, counter=40)
-        time.sleep(5)
-        self.stop()
-      elif "L" in direction:
-        self.stop()
-        self.servo(1400)
-        self.fwd()
         self.left(primary=50, counter=40)
         time.sleep(5)
         self.stop()
+        self.right(primary=50, counter=40)
+      elif "L" in direction:
+        self.right(primary=50, counter=40)
+        time.sleep(5)
+        self.stop()
+        self.left(primary=50, counter=40)
+      time.sleep(5)
+      self.stop()
 
 
     def fwd_w_scan(self):                             #Step 1
