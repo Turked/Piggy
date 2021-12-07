@@ -222,20 +222,15 @@ class Piggy(PiggyParent):
    
     def maze(self):
       while True: 
+        self.servo(2300)
         if (self.read_distance() > 300):
+          self.left(primary=50, counter=-50)
+          time.sleep(0.3)
+          self.stop()
+        elif (self.read_distance() < 299):
           self.fwd()
           time.sleep(1)
           self.stop()
-        elif (self.read_distance() < 299):
-            self.right(primary=-100, counter=100)
-            time.sleep(0.3)
-            self.stop()
-            self.fwd()
-            time.sleep(2)
-            self.stop()
-            self.right(primary=100, counter=-100)
-            time.sleep(0.3)
-            self.stop()
 
 
     def square(self):
