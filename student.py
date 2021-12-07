@@ -58,7 +58,8 @@ class Piggy(PiggyParent):
                 "u": ("Spin At Wall", self.wall_spin),
                 "a": ("Object Avoidence", self.wall_avoid),
                 "b": ("Smart Object Avoidence", self.smart_wall_aviod),
-                "c": ("Forward and Scan", self.fwd_w_scan)
+                "c": ("Forward and Scan", self.fwd_w_scan),
+                "m": ("Maze Solve", self.maze)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -172,6 +173,8 @@ class Piggy(PiggyParent):
               back += 100
                 #Credit -> Vincent
               
+
+    
     def swerve(self, direction = "R"):                                  #Step 2
       self.stop()
       self.servo(self.MIDPOINT)
@@ -217,6 +220,9 @@ class Piggy(PiggyParent):
             self.right(primary=100, counter=-100)
 
    
+    def maze(self):
+      print("Maze") 
+    
     def square(self):
       for i in range(4):
         self.fwd()
