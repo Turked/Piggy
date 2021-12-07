@@ -179,7 +179,7 @@ class Piggy(PiggyParent):
       self.stop()
       self.servo(self.MIDPOINT)
       if "R" in direction:
-        self.right(primary=50, counter=40) #Left is more powerful (Problem solving time)
+        self.right(primary=50, counter=-40) #Left is more powerful (Problem solving time)
         time.sleep(5)
         self.stop()
         self.left(primary=50, counter=40) 
@@ -187,7 +187,7 @@ class Piggy(PiggyParent):
         self.left(primary=50, counter=40)
         time.sleep(5)
         self.stop()
-        self.right(primary=50, counter=40) #Gotta fix this one too
+        self.right(primary=50, counter=-40) #Gotta fix this one too
       time.sleep(5)
       self.stop()
 
