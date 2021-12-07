@@ -76,7 +76,7 @@ class Piggy(PiggyParent):
     '''
     #Nice
     def test(self):
-      self.right(primary=100, counter=100)   #Turn right]
+      self.right(primary=100, counter=90)   #Turn right]
 
     #Nice
     def wall(self):
@@ -178,16 +178,18 @@ class Piggy(PiggyParent):
     def swerve(self, direction = "R"):                                  #Step 2
       self.stop()
       self.servo(self.MIDPOINT)
+      p = 100
+      c = 90
       if "R" in direction:
-        self.right(primary=60, counter=-40) #Left is more powerful (Problem solving time)
+        self.right(primary=p, counter=c) #Left is more powerful (Problem solving time)
         time.sleep(5)
         self.stop()
-        self.left(primary=60, counter=-40) 
+        self.left(primary=p, counter=c) 
       elif "L" in direction:
-        self.left(primary=60, counter=40)
+        self.left(primary=p, counter=c)
         time.sleep(5)
         self.stop()
-        self.right(primary=60, counter=-40) #Gotta fix this one too
+        self.right(primary=p, counter=c) #Gotta fix this one too
       time.sleep(5)
       self.stop()
 
