@@ -179,7 +179,7 @@ class Piggy(PiggyParent):
       self.stop()
       self.servo(self.MIDPOINT)
       p = 100
-      c = 90
+      c = 80
       if "R" in direction:
         self.right(primary=p, counter=c) #Left is more powerful (Problem solving time)
         time.sleep(5)
