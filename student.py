@@ -221,7 +221,22 @@ class Piggy(PiggyParent):
 
    
     def maze(self):
-      print("Maze")
+      while True: 
+        if (self.read_distance() > 300):
+          self.fwd()
+          time.sleep(1)
+          self.stop()
+        elif (self.read_distance() < 299):
+            self.right(primary=-100, counter=100)
+            time.sleep(0.3)
+            self.stop()
+            self.fwd()
+            time.sleep(2)
+            self.stop()
+            self.right(primary=100, counter=-100)
+            time.sleep(0.3)
+            self.stop()
+
 
     def square(self):
       for i in range(4):
