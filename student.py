@@ -76,7 +76,7 @@ class Piggy(PiggyParent):
     '''
     #Nice
     def test(self):
-      self.right(primary=100, counter=90)   #Turn right]
+      self.servo(500)
 
     #Nice
     def wall(self):
@@ -221,8 +221,8 @@ class Piggy(PiggyParent):
 
    
     def maze(self):
-      print("Maze") 
-    
+      print("Maze")
+
     def square(self):
       for i in range(4):
         self.fwd()
