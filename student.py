@@ -188,7 +188,7 @@ class Piggy(PiggyParent):
         time.sleep(1)
         self.stop()
         self.right(primary=100, counter=80) #Gotta fix this one too
-      time.sleep(5)
+      time.sleep(1)
       self.stop()
 
 
