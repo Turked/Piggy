@@ -178,18 +178,16 @@ class Piggy(PiggyParent):
     def swerve(self, direction = "R"):                                  #Step 2
       self.stop()
       self.servo(self.MIDPOINT)
-      p = 100
-      c = 80
       if "R" in direction:
-        self.right(primary=p, counter=c) #Left is more powerful (Problem solving time)
+        self.right(primary=100, counter=80) #Left is more powerful (Problem solving time)
         time.sleep(5)
         self.stop()
-        self.left(primary=p, counter=c) 
+        self.left(primary=100, counter=80) 
       elif "L" in direction:
-        self.left(primary=p, counter=c)
+        self.left(primary=100, counter=80)
         time.sleep(5)
         self.stop()
-        self.right(primary=p, counter=c) #Gotta fix this one too
+        self.right(primary=100, counter=80) #Gotta fix this one too
       time.sleep(5)
       self.stop()
 
