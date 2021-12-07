@@ -76,7 +76,7 @@ class Piggy(PiggyParent):
     '''
     #Nice
     def test(self):
-      self.servo(2000)
+      self.servo(2300)
 
     #Nice
     def wall(self):
