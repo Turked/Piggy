@@ -59,7 +59,8 @@ class Piggy(PiggyParent):
                 "a": ("Object Avoidence", self.wall_avoid),
                 "b": ("Smart Object Avoidence", self.smart_wall_aviod),
                 "c": ("Forward and Scan", self.fwd_w_scan),
-                "m": ("Maze Solve", self.maze)
+                "m": ("Maze Solve", self.maze),
+                "n": ("Maze Solve Cheap", self.derp_maze)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -219,19 +220,34 @@ class Piggy(PiggyParent):
           while True:
             self.right(primary=100, counter=-100)
 
-   
-    def maze(self):
-      while True: 
-        self.servo(2300)
-        if (self.read_distance() > 300):
-          self.left(primary=50, counter=-50)
+    def derp_maze(self):
+      while True:
+        if (self.read_distance() > 300):              #Is there a wall (No)
+          self.fwd()                                  #Move forward] 
+          time.sleep(1)                               #Move forward]
+          self.stop()                                 #Move forward]
+        elif (self.read_distance() < 299):            #Is there a wall (Yes)
+          self.right(primary=100, counter=-100)
           time.sleep(0.3)
           self.stop()
-        elif (self.read_distance() < 299):
-          self.fwd()
-          time.sleep(1)
-          self.stop()
 
+
+
+    def maze(self):
+      while True: 
+        self.servo(2300)                         #Look Left
+        self.sleep(1)                            #Look Left
+        if (self.read_distance() > 300):         #Is there a wall (No)
+          self.servo(MIDPOINT)                   #Look straight
+        elif (self.read_distance() < 300):       #Is there a wall (Yes)
+
+        elif (self.read_distance() < 300):
+          self.servo(MIDPOINT)
+          self.sleep(1)
+
+          #Look left if close, look forward, if forward is far then go forwards for a bit then repeat
+          #Look left if far, look forward, if forward is far then go forwards for a bit then repeat 
+          #Look left if far, look forward, if forward is close then turn right then repeat
 
     def square(self):
       for i in range(4):
