@@ -181,15 +181,15 @@ class Piggy(PiggyParent):
       self.servo(self.MIDPOINT)
       if "R" in direction:
         self.right(primary=100, counter=80) #Left is more powerful (Problem solving time)
-        time.sleep(1)
+        time.sleep(0.5)
         self.stop()
         self.left(primary=100, counter=80) 
       elif "L" in direction:
         self.left(primary=100, counter=80)
-        time.sleep(1)
+        time.sleep(0.5)
         self.stop()
         self.right(primary=100, counter=80) #Gotta fix this one too
-      time.sleep(1)
+      time.sleep(0.5)
       self.stop()
 
 
