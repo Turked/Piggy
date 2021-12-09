@@ -140,11 +140,11 @@ class Piggy(PiggyParent):
     def smart_wall_aviod(self):
       back = 0
       while True:                                     #This makes it run forever
-        if (self.read_distance() > (300 + back)):              #Is there a wall (No)
+        if (self.read_distance() > (200 + back)):              #Is there a wall (No)
           self.fwd()                                  #Move forward] 
           time.sleep(1)                               #Move forward]
           self.stop()                                 #Move forward]
-        elif (self.read_distance() < (299 + back)):            #Is there a wall (Yes)
+        elif (self.read_distance() < (199 + back)):            #Is there a wall (Yes)
             self.servo(800)                           #Looking right]
             time.sleep(1)                             #Looking right]
             self.stop()                               #Looking right]
@@ -197,13 +197,13 @@ class Piggy(PiggyParent):
       while True: 
         self.fwd()
         self.servo(1000)
-        if (self.read_distance() < 300):
+        if (self.read_distance() < 200):
           self.swerve("L")
         self.servo(1800)
-        if (self.read_distance() < 300):
+        if (self.read_distance() < 200):
           self.swerve("R")
         self.servo(1400)
-        if (self.read_distance() < 300):
+        if (self.read_distance() < 200):
           self.smart_wall_aviod()
 
 
