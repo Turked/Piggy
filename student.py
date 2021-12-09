@@ -286,7 +286,6 @@ class Piggy(PiggyParent):
 
 
 
-        
 
     def safe_to_drive(self):
       self.read_distance()
@@ -294,6 +293,82 @@ class Piggy(PiggyParent):
         return True
       else:
         return False
+
+######################################MAZE MODIFICATION################################
+Nice
+    def m_smart_wall_aviod(self):
+      back = 0
+      while True:                                     #This makes it run forever
+        if (self.read_distance() > (200 + back)):              #Is there a wall (No)
+          self.fwd()                                  #Move forward] 
+          time.sleep(1)                               #Move forward]
+          self.stop()                                 #Move forward]
+        elif (self.read_distance() < (199 + back)):            #Is there a wall (Yes)
+            self.servo(800)                           #Looking right]
+            time.sleep(1)                             #Looking right]
+            self.stop()                               #Looking right]
+            right = self.read_distance()              #Setting right length to a variable
+            self.servo(2000)                          #Looking left]
+            time.sleep(1)                             #Looking left]
+            self.stop()                               #Looking left]
+            left = self.read_distance()               #Setting left length to a variable
+            self.servo(1400)                          #Looking straight]
+            time.sleep(1)                             #Looking straight]
+            self.stop()                               #Looking straight]
+            if (abs(right - left) > 100):
+              if (right > left):                        #Is the right side shorter (Yes)
+                self.servo(1400)                        #Looking straight]
+                time.sleep(1)                           #Looking straight]
+                self.stop()                             #Looking straight]
+                self.wall_avoid()                       #Running Wall Avoid
+              elif (left > right):                      #Is the left side shorter (Yes)
+                self.servo(1400)                        #Looking straight]
+                time.sleep(1)                           #Looking straight]
+                self.stop()                             #Looking straight]
+                self.wall_avoid_left()                  #Running Wall Avoid Left
+            else:
+              self.back()
+              time.sleep(2)
+              self.stop()
+              back += 100
+                #Credit -> Vincent
+              
+
+    
+    def m_swerve(self, direction = "R"):                                  #Step 2
+      self.stop()
+      self.servo(self.MIDPOINT)
+      if "R" in direction:
+        self.right(primary=100, counter=80) #Left is more powerful (Problem solving time)
+        time.sleep(0.5)
+        self.stop()
+        self.left(primary=100, counter=80) 
+      elif "L" in direction:
+        self.left(primary=100, counter=80)
+        time.sleep(0.5)
+        self.stop()
+        self.right(primary=100, counter=80) #Gotta fix this one too
+      time.sleep(0.5)
+      self.stop()
+
+
+    def m_fwd_w_scan(self):                             #Step 1
+      while True: 
+        self.fwd()
+        self.servo(1000)
+        if (self.read_distance() < 200):
+          self.m_swerve("L")
+        self.servo(1800)
+        if (self.read_distance() < 200):
+          self.m_swerve("R")
+        self.servo(1400)
+        if (self.read_distance() < 200):
+          self.m_smart_wall_aviod()
+
+
+###########################################################################################
+###########################################################################################
+###########################################################################################
 
 
     def safe_to_dance(self):
