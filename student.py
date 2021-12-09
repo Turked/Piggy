@@ -240,6 +240,7 @@ class Piggy(PiggyParent):
         if (self.read_distance() > 300):         #Is there a wall (No)
           self.servo(MIDPOINT)                   #Look straight
         elif (self.read_distance() < 300):       #Is there a wall (Yes)
+          print("empty")
 
         elif (self.read_distance() < 300):
           self.servo(MIDPOINT)
