@@ -300,7 +300,7 @@ class Piggy(PiggyParent):
       while True: 
         self.servo(2300)                         #Look Left
         time.sleep(1)                            #Look Left
-        if (self.read_distance() < 100):         #Is there a wall left1 (yes)
+        if (self.read_distance() < 300):         #Is there a wall left1 (yes)
           self.servo(self.MIDPOINT)                   #Look straight
           time.sleep(1)                          #Look straight
           if (self.read_distance() > 50):       #is there a wall infront1 (No)
