@@ -61,8 +61,7 @@ class Piggy(PiggyParent):
                 "c": ("Forward and Scan", self.fwd_w_scan),
                 "m": ("Maze Solve", self.maze),
                 "n": ("Maze Solve Cheap", self.derp_maze),
-                "o": ("Mega Maze", self.mega_maze),
-                "d": ("Forward and Scan M", self.m_fwd_w_scan)
+                "o": ("Mega Maze", self.mega_maze)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
