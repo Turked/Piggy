@@ -363,7 +363,9 @@ class Piggy(PiggyParent):
           self.m_swerve("R")
         self.servo(1400)
         if (self.read_distance() < 200):
-          self.m_smart_wall_aviod()
+            self.right(primary=100, counter=-100)
+            time.sleep(0.3)
+            self.stop()
 
 
 ###########################################################################################
