@@ -300,25 +300,25 @@ class Piggy(PiggyParent):
       while True: 
         self.servo(2300)                         #Look Left
         time.sleep(1)                            #Look Left
-        if (self.read_distance() < 150):         #Is there a wall left1 (yes)
+        if (self.read_distance() < 100):         #Is there a wall left1 (yes)
           self.servo(self.MIDPOINT)                   #Look straight
           time.sleep(1)                          #Look straight
-          if (self.read_distance() > 150):       #is there a wall infront1 (No)
+          if (self.read_distance() > 100):       #is there a wall infront1 (No)
             self.fwd()                           #Drive forwards
             time.sleep(0.5)                      #Drive forwards
             self.stop()                          #Drive forwards
-          elif (self.read_distance() < 150):     #is there a wall infront1 (yes)
+          elif (self.read_distance() < 100):     #is there a wall infront1 (yes)
             self.right(primary=100, counter=-100)#Turn right
             time.sleep(0.4)                      #Turn right 
             self.stop()                          #Turn right
-        elif (self.read_distance() > 150):       #Is there a wall left1 (No)
+        elif (self.read_distance() > 100):       #Is there a wall left1 (No)
           self.servo(self.MIDPOINT)                   #Look straight
           time.sleep(1)                          #Look straight
-          if (self.read_distance() > 150):       #is there a wall infront2 (No)
+          if (self.read_distance() > 100):       #is there a wall infront2 (No)
             self.fwd()                           #Drive forwards
             time.sleep(0.5)                      #Drive forwards
             self.stop()                          #Drive forwards
-          elif (self.read_distance() < 150):     #is there a wall infront2 (yes)
+          elif (self.read_distance() < 100):     #is there a wall infront2 (yes)
             self.left(primary=100, counter=-100) #Turn left
             time.sleep(0.4)                      #Turn left 
             self.stop()                          #Turn left
