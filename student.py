@@ -46,7 +46,7 @@ class Piggy(PiggyParent):
         print("\n *** MENU ***") 
         menu = {"n": ("Navigate", self.nav),
                 "e": ("Dance", self.dance),
-                "o": ("Obstacle count", self.obstacle_count),
+                "p": ("Obstacle count", self.obstacle_count),
                 "s": ("Shy", self.shy),
                 "f": ("Follow", self.follow),
                 "c": ("Calibrate", self.calibrate),
@@ -61,6 +61,7 @@ class Piggy(PiggyParent):
                 "c": ("Forward and Scan", self.fwd_w_scan),
                 "m": ("Maze Solve", self.maze),
                 "n": ("Maze Solve Cheap", self.derp_maze),
+                "o": ("Mega Maze", self.mega_maze),
                 "d": ("Forward and Scan M", self.m_fwd_w_scan)
                 }
         # loop and print the menu...
@@ -296,77 +297,47 @@ class Piggy(PiggyParent):
         return False
 
 ######################################MAZE MODIFICATION################################
-    def m_smart_wall_aviod(self):
-      back = 0
-      while True:                                     #This makes it run forever
-        if (self.read_distance() > (200 + back)):              #Is there a wall (No)
-          self.fwd()                                  #Move forward] 
-          time.sleep(1)                               #Move forward]
-          self.stop()                                 #Move forward]
-        elif (self.read_distance() < (199 + back)):            #Is there a wall (Yes)
-            self.servo(800)                           #Looking right]
-            time.sleep(1)                             #Looking right]
-            self.stop()                               #Looking right]
-            right = self.read_distance()              #Setting right length to a variable
-            self.servo(2000)                          #Looking left]
-            time.sleep(1)                             #Looking left]
-            self.stop()                               #Looking left]
-            left = self.read_distance()               #Setting left length to a variable
-            self.servo(1400)                          #Looking straight]
-            time.sleep(1)                             #Looking straight]
-            self.stop()                               #Looking straight]
-            if (abs(right - left) > 100):
-              if (right > left):                        #Is the right side shorter (Yes)
-                self.servo(1400)                        #Looking straight]
-                time.sleep(1)                           #Looking straight]
-                self.stop()                             #Looking straight]
-                self.wall_avoid()                       #Running Wall Avoid
-              elif (left > right):                      #Is the left side shorter (Yes)
-                self.servo(1400)                        #Looking straight]
-                time.sleep(1)                           #Looking straight]
-                self.stop()                             #Looking straight]
-                self.wall_avoid_left()                  #Running Wall Avoid Left
-            else:
-              self.back()
-              time.sleep(2)
-              self.stop()
-              back += 100
-                #Credit -> Vincent
-              
-
-    
-    def m_swerve(self, direction = "R"):                                  #Step 2
-      self.stop()
-      self.servo(self.MIDPOINT)
-      if "R" in direction:
-        self.right(primary=100, counter=80) 
-        time.sleep(0.5)
-        self.stop()
-        self.left(primary=100, counter=80) 
-      elif "L" in direction:
-        self.left(primary=100, counter=80)
-        time.sleep(0.5)
-        self.stop()
-        self.right(primary=100, counter=80) 
-      time.sleep(0.5)
-      self.stop()
-
-
-    def m_fwd_w_scan(self):                             #Step 1
+    def mega_maze(self):
       while True: 
-        self.fwd()
-        self.servo(1000)
-        if (self.read_distance() < 200):
-          self.m_swerve("L")
-        self.servo(1800)
-        if (self.read_distance() < 200):
-          self.m_swerve("R")
-        self.servo(1400)
-        if (self.read_distance() < 200):
-            self.right(primary=100, counter=-100)
-            time.sleep(0.3)
-            self.stop()
+        self.servo(2300)                         #Look Left
+        self.sleep(1)                            #Look Left
+        if (self.read_distance() < 300):         #Is there a wall left1 (yes)
+          self.servo(MIDPOINT)                   #Look straight
+          self.sleep(1)                          #Look straight
+          if (self.read_distance() > 300):       #is there a wall infront1 (No)
+            self.fwd()                           #Drive forwards
+            self.sleep(0.5)                      #Drive forwards
+            self.stop()                          #Drive forwards
+          elif (self.read_distance() < 300):     #is there a wall infront1 (yes)
+            self.right(primary=100, counter=-100)#Turn right
+            time.sleep(0.3)                      #Turn right 
+            self.stop()                          #Turn right
+        elif (self.read_distance() > 300):       #Is there a wall left1 (No)
+          self.servo(MIDPOINT)                   #Look straight
+          self.sleep(1)                          #Look straight
+          if (self.read_distance() > 300):       #is there a wall infront2 (No)
+            self.fwd()                           #Drive forwards
+            self.sleep(0.5)                      #Drive forwards
+            self.stop()                          #Drive forwards
+          elif (self.read_distance() < 300):     #is there a wall infront2 (yes)
+            self.left(primary=100, counter=-100) #Turn left
+            time.sleep(0.3)                      #Turn left 
+            self.stop()                          #Turn left
 
+
+
+
+
+        elif (self.read_distance() > 300):       #Is there a wall (No)
+          print("empty")
+
+        elif (self.read_distance() < 300):
+          self.servo(MIDPOINT)
+          self.sleep(1)
+
+          #Look left if close, look forward, if forward is far then go forwards for a bit then repeat
+          #Look left if far, look forward, if forward is far then go forwards for a bit then repeat 
+          #Look left if far, look forward, if forward is close then turn right then repeat
 
 ###########################################################################################
 ###########################################################################################
