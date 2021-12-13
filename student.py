@@ -295,6 +295,7 @@ class Piggy(PiggyParent):
       else:
         return False
 
+########################################Nice###########################################
 ######################################MAZE MODIFICATION################################
     def mega_maze(self):
       while True: 
