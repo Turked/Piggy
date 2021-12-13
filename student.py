@@ -45,7 +45,7 @@ class Piggy(PiggyParent):
         # Please feel free to change the menu and add options.
         print("\n *** MENU ***") 
         menu = {"n": ("Navigate", self.nav),
-                "d": ("Dance", self.dance),
+                "e": ("Dance", self.dance),
                 "o": ("Obstacle count", self.obstacle_count),
                 "s": ("Shy", self.shy),
                 "f": ("Follow", self.follow),
@@ -60,7 +60,8 @@ class Piggy(PiggyParent):
                 "b": ("Smart Object Avoidence", self.smart_wall_aviod),
                 "c": ("Forward and Scan", self.fwd_w_scan),
                 "m": ("Maze Solve", self.maze),
-                "n": ("Maze Solve Cheap", self.derp_maze)
+                "n": ("Maze Solve Cheap", self.derp_maze),
+                "d": ("Forward and Scan M", self.m_fwd_w_scan)
                 }
         # loop and print the menu...
         for key in sorted(menu.keys()):
@@ -339,7 +340,7 @@ Nice
       self.stop()
       self.servo(self.MIDPOINT)
       if "R" in direction:
-        self.right(primary=100, counter=80) #Left is more powerful (Problem solving time)
+        self.right(primary=100, counter=80) 
         time.sleep(0.5)
         self.stop()
         self.left(primary=100, counter=80) 
@@ -347,7 +348,7 @@ Nice
         self.left(primary=100, counter=80)
         time.sleep(0.5)
         self.stop()
-        self.right(primary=100, counter=80) #Gotta fix this one too
+        self.right(primary=100, counter=80) 
       time.sleep(0.5)
       self.stop()
 
