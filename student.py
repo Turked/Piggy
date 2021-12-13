@@ -305,7 +305,7 @@ class Piggy(PiggyParent):
           time.sleep(1)                          #Look straight
           if (self.read_distance() > 50):       #is there a wall infront1 (No)
             self.fwd()                           #Drive forwards
-            time.sleep(0.3.5)                      #Drive forwards
+            time.sleep(0.35)                      #Drive forwards
             self.stop()                          #Drive forwards
           elif (self.read_distance() < 50):     #is there a wall infront1 (yes)
             self.right(primary=100, counter=-100)#Turn right
@@ -316,7 +316,7 @@ class Piggy(PiggyParent):
           time.sleep(1)                          #Look straight
           if (self.read_distance() > 50):       #is there a wall infront2 (No)
             self.fwd()                           #Drive forwards
-            time.sleep(0.3.5)                      #Drive forwards
+            time.sleep(0.35)                      #Drive forwards
             self.stop()                          #Drive forwards
           elif (self.read_distance() < 50):     #is there a wall infront2 (yes)
             self.left(primary=100, counter=-100) #Turn left
