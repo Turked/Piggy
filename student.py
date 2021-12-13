@@ -296,7 +296,6 @@ class Piggy(PiggyParent):
         return False
 
 ######################################MAZE MODIFICATION################################
-Nice
     def m_smart_wall_aviod(self):
       back = 0
       while True:                                     #This makes it run forever
