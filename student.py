@@ -239,12 +239,12 @@ class Piggy(PiggyParent):
         self.servo(2300)                         #Look Left
         time.sleep(1)                            #Look Left
         if (self.read_distance() > 300):         #Is there a wall (No)
-          self.servo(MIDPOINT)                   #Look straight
+          self.servo(self.MIDPOINT)                   #Look straight
         elif (self.read_distance() < 300):       #Is there a wall (Yes)
           print("empty")
 
         elif (self.read_distance() < 300):
-          self.servo(MIDPOINT)
+          self.servo(self.MIDPOINT)
           time.sleep(1)
 
           #Look left if close, look forward, if forward is far then go forwards for a bit then repeat
@@ -301,7 +301,7 @@ class Piggy(PiggyParent):
         self.servo(2300)                         #Look Left
         time.sleep(1)                            #Look Left
         if (self.read_distance() < 300):         #Is there a wall left1 (yes)
-          self.servo(MIDPOINT)                   #Look straight
+          self.servo(self.MIDPOINT)                   #Look straight
           time.sleep(1)                          #Look straight
           if (self.read_distance() > 300):       #is there a wall infront1 (No)
             self.fwd()                           #Drive forwards
@@ -312,7 +312,7 @@ class Piggy(PiggyParent):
             time.sleep(0.3)                      #Turn right 
             self.stop()                          #Turn right
         elif (self.read_distance() > 300):       #Is there a wall left1 (No)
-          self.servo(MIDPOINT)                   #Look straight
+          self.servo(self.MIDPOINT)                   #Look straight
           time.sleep(1)                          #Look straight
           if (self.read_distance() > 300):       #is there a wall infront2 (No)
             self.fwd()                           #Drive forwards
