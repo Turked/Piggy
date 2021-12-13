@@ -237,7 +237,7 @@ class Piggy(PiggyParent):
     def maze(self):
       while True: 
         self.servo(2300)                         #Look Left
-        self.sleep(1)                            #Look Left
+        time.sleep(1)                            #Look Left
         if (self.read_distance() > 300):         #Is there a wall (No)
           self.servo(MIDPOINT)                   #Look straight
         elif (self.read_distance() < 300):       #Is there a wall (Yes)
@@ -245,7 +245,7 @@ class Piggy(PiggyParent):
 
         elif (self.read_distance() < 300):
           self.servo(MIDPOINT)
-          self.sleep(1)
+          time.sleep(1)
 
           #Look left if close, look forward, if forward is far then go forwards for a bit then repeat
           #Look left if far, look forward, if forward is far then go forwards for a bit then repeat 
@@ -299,13 +299,13 @@ class Piggy(PiggyParent):
     def mega_maze(self):
       while True: 
         self.servo(2300)                         #Look Left
-        self.sleep(1)                            #Look Left
+        time.sleep(1)                            #Look Left
         if (self.read_distance() < 300):         #Is there a wall left1 (yes)
           self.servo(MIDPOINT)                   #Look straight
-          self.sleep(1)                          #Look straight
+          time.sleep(1)                          #Look straight
           if (self.read_distance() > 300):       #is there a wall infront1 (No)
             self.fwd()                           #Drive forwards
-            self.sleep(0.5)                      #Drive forwards
+            time.sleep(0.5)                      #Drive forwards
             self.stop()                          #Drive forwards
           elif (self.read_distance() < 300):     #is there a wall infront1 (yes)
             self.right(primary=100, counter=-100)#Turn right
@@ -313,26 +313,15 @@ class Piggy(PiggyParent):
             self.stop()                          #Turn right
         elif (self.read_distance() > 300):       #Is there a wall left1 (No)
           self.servo(MIDPOINT)                   #Look straight
-          self.sleep(1)                          #Look straight
+          time.sleep(1)                          #Look straight
           if (self.read_distance() > 300):       #is there a wall infront2 (No)
             self.fwd()                           #Drive forwards
-            self.sleep(0.5)                      #Drive forwards
+            time.sleep(0.5)                      #Drive forwards
             self.stop()                          #Drive forwards
           elif (self.read_distance() < 300):     #is there a wall infront2 (yes)
             self.left(primary=100, counter=-100) #Turn left
             time.sleep(0.3)                      #Turn left 
             self.stop()                          #Turn left
-
-
-
-
-
-        elif (self.read_distance() > 300):       #Is there a wall (No)
-          print("empty")
-
-        elif (self.read_distance() < 300):
-          self.servo(MIDPOINT)
-          self.sleep(1)
 
           #Look left if close, look forward, if forward is far then go forwards for a bit then repeat
           #Look left if far, look forward, if forward is far then go forwards for a bit then repeat 
